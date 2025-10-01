@@ -1,6 +1,7 @@
 // src/components/Header.jsx
 import { useEffect, useState } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Link } from 'react-router';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,24 +31,23 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-            <a href="/">Movie App</a>
+            <Link to="/">Movie App</Link>
           </div>
 
           {/* Desktop Nav */}
           <nav className="items-center hidden md:flex gap-x-8">
-            <a href="/" className="transition hover:text-blue-600 dark:hover:text-blue-400">Home</a>
-            {/* <a href="#about" className="transition hover:text-blue-600 dark:hover:text-blue-400">About</a>
-            <a href="#services" className="transition hover:text-blue-600 dark:hover:text-blue-400">Services</a>
+             <Link to="/" className="transition hover:text-blue-600 dark:hover:text-blue-400">Home</Link>
+             <Link to="/favourite" className="transition hover:text-blue-600 dark:hover:text-blue-400">Favourite</Link>
+           {/* <a href="#services" className="transition hover:text-blue-600 dark:hover:text-blue-400">Services</a>
             <a href="#contact" className="transition hover:text-blue-600 dark:hover:text-blue-400">Contact</a> */}
 
             {/* Auth Buttons */}
             <div className="flex gap-2 ml-6">
-              <a href='/auth/login' className="px-4 cursor-pointer py-2 text-sm font-medium text-blue-600 transition border border-blue-600 rounded hover:bg-blue-50 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-900/20">
-                Login
-              </a>
-              <a href='/auth/register' className="px-4 cursor-pointer py-2 text-sm font-medium text-white transition bg-blue-600 rounded hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
+              
+              <Link to="/auth/login" className="px-4 cursor-pointer py-2 text-sm font-medium text-blue-600 transition border border-blue-600 rounded hover:bg-blue-50 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-900/20">Login</Link>
+              <Link to='/auth/register' className="px-4 cursor-pointer py-2 text-sm font-medium text-white transition bg-blue-600 rounded hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
                 Sign Up
-              </a>
+              </Link>
             </div>
 
             {/* Dark Mode Toggle */}
@@ -90,10 +90,10 @@ const Header = () => {
           <a href="#contact" className="block hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
 
           <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
-            <button className="w-full px-4 py-2 text-sm text-left text-blue-600 transition border border-blue-600 rounded dark:text-blue-400 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20">
+            <button onClick={() => { window.location.href = '/auth/login' }} className="w-full px-4 py-2 text-sm text-left text-blue-600 transition border border-blue-600 rounded dark:text-blue-400 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20">
               Login
             </button>
-            <button className="w-full px-4 py-2 mt-2 text-sm text-left text-white transition bg-blue-600 rounded dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600">
+            <button onClick={() => { window.location.href = '/auth/register' }} className="w-full px-4 py-2 mt-2 text-sm text-left text-white transition bg-blue-600 rounded dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600">
               Sign Up
             </button>
           </div>

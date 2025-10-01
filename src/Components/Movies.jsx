@@ -67,7 +67,7 @@ function Movies({ searchQuery, currentPage, setCurrentPage, totalPages, setTotal
         onPageChange={setCurrentPage} />
 
             {/* Movie Grid */}
-            <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4 lg:grid-cols-6 lg:gap-4">
+            <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4 lg:grid-cols-5 lg:gap-4">
 
                 {/* Show loader while data is being fetched */}
                 {loading ? (

@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css'
 import Home from './Components/Home.jsx';
 import Login from './Components/auth/Login.jsx';
 import Register from './Components/auth/Register.jsx';
 import NotFoundPage from './Components/partials/404NotFound.jsx';
+import './App.css';
+import { Cart } from './Components/Pages/Cart.jsx';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -14,6 +15,7 @@ function App() {
   return (
     <Router>
       <Routes>
+
         <Route
           path="/"
           element={
@@ -29,6 +31,7 @@ function App() {
         />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
+        <Route path="/cart" element={<Cart />} />
         {/* 404 Page */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
