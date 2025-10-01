@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
-import Header from './Components/inc/Header.jsx';
-import SearchBox from './Components/SearchBox.jsx';
-import Movies from './Components/Movies.jsx';
-import Footer from './Components/inc/Footer.jsx';
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from "react-toastify";
+import Home from './Components/Home.jsx';
+import Login from './Components/auth/Login.jsx';
+import Register from './Components/auth/Register.jsx';
+import NotFoundPage from './Components/partials/404NotFound.jsx';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -14,33 +12,27 @@ function App() {
   const [totalPages, setTotalPages] = useState(0);
 
   return (
-    <>
-      <Header />
-      <SearchBox onSearch={setSearchQuery} setCurrentPage={setCurrentPage} />
-
-
-
-      <Movies searchQuery={searchQuery}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        totalPages={totalPages}
-        setTotalPages={setTotalPages} />
-
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
-
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              totalPages={totalPages}
+              setTotalPages={setTotalPages}
+            />
+          }
+        />
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/register" element={<Register />} />
+        {/* 404 Page */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Router>
 
   )
 }

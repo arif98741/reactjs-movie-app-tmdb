@@ -30,24 +30,24 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-            My<span className="text-gray-900 dark:text-white">Logo</span>
+            <a href="/">Movie App</a>
           </div>
 
           {/* Desktop Nav */}
           <nav className="items-center hidden md:flex gap-x-8">
-            <a href="#home" className="transition hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+            <a href="/" className="transition hover:text-blue-600 dark:hover:text-blue-400">Home</a>
             {/* <a href="#about" className="transition hover:text-blue-600 dark:hover:text-blue-400">About</a>
             <a href="#services" className="transition hover:text-blue-600 dark:hover:text-blue-400">Services</a>
             <a href="#contact" className="transition hover:text-blue-600 dark:hover:text-blue-400">Contact</a> */}
 
             {/* Auth Buttons */}
             <div className="flex gap-2 ml-6">
-              <button className="px-4 py-2 text-sm font-medium text-blue-600 transition border border-blue-600 rounded hover:bg-blue-50 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-900/20">
+              <a href='/auth/login' className="px-4 cursor-pointer py-2 text-sm font-medium text-blue-600 transition border border-blue-600 rounded hover:bg-blue-50 dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-900/20">
                 Login
-              </button>
-              <button className="px-4 py-2 text-sm font-medium text-white transition bg-blue-600 rounded hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
+              </a>
+              <a href='/auth/register' className="px-4 cursor-pointer py-2 text-sm font-medium text-white transition bg-blue-600 rounded hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600">
                 Sign Up
-              </button>
+              </a>
             </div>
 
             {/* Dark Mode Toggle */}
