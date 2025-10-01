@@ -59,7 +59,7 @@ function Movies({ searchQuery, currentPage, setCurrentPage, totalPages, setTotal
     return (
         <div className="min-h-screen px-4 py-10 bg-gray-100 dark:bg-gray-900 sm:px-6 lg:px-12">
             <h1 className="mb-8 text-3xl font-bold text-center text-gray-900 dark:text-white">
-                {(searchQuery ? `Search Results for "${searchQuery}"` : 'Popular Movies')}
+                {(searchQuery ? `Search Results for "${searchQuery}"` : 'Latest Popular Movies')}
             </h1>
             <BreadcrumbsPagination currentPage={currentPage} totalPages={totalPages} />
 
