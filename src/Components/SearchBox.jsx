@@ -6,8 +6,8 @@ const SearchBox = ({ onSearch, setCurrentPage }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(input.trim());
     setCurrentPage(1); // Reset to the first page on new search
+    onSearch(input.trim());
   };
 
   return (

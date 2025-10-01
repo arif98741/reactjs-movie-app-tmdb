@@ -2,6 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { FaHeart } from 'react-icons/fa';  // Using Font Awesome icon from react-icons
+import { toast } from 'react-toastify';
 
 
 
@@ -28,6 +29,7 @@ const MovieCard = ({ id, title, image, rating, releaseDate }) => {
     const newLikedState = !isLiked;
     setIsLiked(newLikedState);
 
+
     // Get the current liked movies from localStorage
     const likedMovies = JSON.parse(localStorage.getItem('likedMovies')) || [];
 
@@ -43,12 +45,21 @@ const MovieCard = ({ id, title, image, rating, releaseDate }) => {
       const updatedLikedMovies = likedMovies.filter((movieId) => movieId !== id);
       localStorage.setItem('likedMovies', JSON.stringify(updatedLikedMovies)); // Update localStorage
     }
+
+    toast.success(newLikedState ? 'Added to Favorites' : 'Removed from Favorites', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   }
 
   return (
     <div className="bg-white dark:bg-gray-800 mt-2 rounded-lg shadow-md overflow-hidden transition hover:scale-[1.02] hover:shadow-lg duration-300 w-full max-w-[220px]">
-      {/* Movie Image */}
-      {/* Movie Image or Fallback */}
       {hasImage ? (
         <img
           src={`https://image.tmdb.org/t/p/w500${image}`}
@@ -61,15 +72,12 @@ const MovieCard = ({ id, title, image, rating, releaseDate }) => {
         </div>
       )}
 
-      {/* Info */}
       <div className="p-4">
-        {/* Title */}
         <div className="flex items-center justify-between"> {/* Use flex and items-center */}
           <h3 className="text-lg font-semibold text-gray-800 truncate dark:text-white">
             {title}
           </h3>
 
-          {/* Heart Icon */}
           <FaHeart
             className={`text-xl cursor-pointer ${isLiked ? 'text-red-500' : 'text-gray-500'}`}
             onClick={handleLikeClick} // Toggle like status

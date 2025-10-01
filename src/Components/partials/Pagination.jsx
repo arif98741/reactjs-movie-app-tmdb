@@ -23,12 +23,12 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     const pages = getPageNumbers();
 
     return (
-        <nav className="flex flex-wrap items-center justify-center gap-2 mt-6 text-sm">
+        <nav className="flex flex-wrap items-center justify-center gap-2 mt-6 mb-3 text-sm">
             {/* Prev Button */}
             <button
                 onClick={() => onPageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className={`px-3 py-1.5 rounded-md border transition ${currentPage === 1
+                className={`px-3 py-1.5 rounded-md border transition cursor-pointer ${currentPage === 1
                         ? 'text-gray-400 border-gray-300 cursor-not-allowed'
                         : 'text-blue-600 border-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900'
                     }`}
@@ -41,7 +41,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
                 <button
                     key={page}
                     onClick={() => onPageChange(page)}
-                    className={`px-3 py-1.5 rounded-md border transition ${page === currentPage
+                    className={`px-3 py-1.5 rounded-md border transition cursor-pointer ${page === currentPage
                             ? 'bg-blue-600 text-white border-blue-600'
                             : 'text-gray-700 dark:text-gray-300 border-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                         }`}
@@ -54,7 +54,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
             <button
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className={`px-3 py-1.5 rounded-md border transition ${currentPage === totalPages
+                className={`px-3 py-1.5 rounded-md border transition cursor-pointer ${currentPage === totalPages
                         ? 'text-gray-400 border-gray-300 cursor-not-allowed'
                         : 'text-blue-600 border-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900'
                     }`}

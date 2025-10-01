@@ -25,13 +25,13 @@ function Movies({ searchQuery, currentPage, setCurrentPage, totalPages, setTotal
 
 
     const fetchMovies = async (query = '', page = 1) => {
-        console.log('query:', query, 'on page:', page);
-
+        
         const endpoint = query
-            ? `${TMDB_API_URL}/search/movie?sort_by=popularity.desc&query=${encodeURIComponent(query)}&page=${page}&include_adult=false`
-            : `${TMDB_API_URL}/discover/movie?sort_by=popularity.desc&page=${page}&include_adult=false`;
-
+        ? `${TMDB_API_URL}/search/movie?sort_by=popularity.desc&query=${encodeURIComponent(query)}&page=${page}&include_adult=false`
+        : `${TMDB_API_URL}/discover/movie?sort_by=popularity.desc&page=${page}&include_adult=false`;
+        
         setLoading(true); // Set loading to true before fetching
+        console.log('query:', query, 'on page:', page);
 
         try {
             const response = await fetch(endpoint, TMDB_API_OPTIONS);
@@ -62,6 +62,9 @@ function Movies({ searchQuery, currentPage, setCurrentPage, totalPages, setTotal
                 {(searchQuery ? `Search Results for "${searchQuery}"` : 'Latest Popular Movies')}
             </h1>
             <BreadcrumbsPagination currentPage={currentPage} totalPages={totalPages} />
+            <Pagination currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage} />
 
             {/* Movie Grid */}
             <div className="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4 lg:grid-cols-6 lg:gap-4">

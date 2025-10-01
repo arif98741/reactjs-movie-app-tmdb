@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Header from './Components/inc/Header.jsx';
-import Section from './Components/Section';
 import SearchBox from './Components/SearchBox.jsx';
 import Movies from './Components/Movies.jsx';
-import Pagination from './Components/partials/Pagination.jsx';
 import Footer from './Components/inc/Footer.jsx';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -18,18 +18,30 @@ function App() {
       <Header />
       <SearchBox onSearch={setSearchQuery} setCurrentPage={setCurrentPage} />
 
+
+
       <Movies searchQuery={searchQuery}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         totalPages={totalPages}
         setTotalPages={setTotalPages} />
 
-      <Pagination currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage} />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+
       <Footer />
     </>
-    
+
   )
 }
 
