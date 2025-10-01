@@ -38,6 +38,8 @@ const Header = () => {
           <nav className="items-center hidden md:flex gap-x-8">
              <Link to="/" className="transition hover:text-blue-600 dark:hover:text-blue-400">Home</Link>
              <Link to="/favourite" className="transition hover:text-blue-600 dark:hover:text-blue-400">Favourite</Link>
+             <Link to="/cart" className="transition hover:text-blue-600 dark:hover:text-blue-400">Cart</Link>
+             <Link to="/product/1" className="transition hover:text-blue-600 dark:hover:text-blue-400">Product Details</Link>
            {/* <a href="#services" className="transition hover:text-blue-600 dark:hover:text-blue-400">Services</a>
             <a href="#contact" className="transition hover:text-blue-600 dark:hover:text-blue-400">Contact</a> */}
 

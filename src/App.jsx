@@ -6,6 +6,7 @@ import Register from './Components/auth/Register.jsx';
 import NotFoundPage from './Components/partials/404NotFound.jsx';
 import './App.css';
 import { Cart } from './Components/Pages/Cart.jsx';
+import ProductDetails from './Components/Pages/ProductDetails.jsx';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -32,6 +33,8 @@ function App() {
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+
         {/* 404 Page */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
